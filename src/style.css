@@ -66,3 +66,9 @@ ul {
   list-style: none;
   height: 30px;
 }
+.name,
+.link {
+  font-size: 15px;
+  margin-left: 15px;
+  text-decoration: none;
+}
