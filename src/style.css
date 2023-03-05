@@ -66,9 +66,12 @@ ul {
   list-style: none;
   height: 30px;
 }
-.name,
-.link {
-  font-size: 15px;
-  margin-left: 15px;
+
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.active:hover {
   text-decoration: none;
 }
