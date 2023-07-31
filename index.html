@@ -43,50 +43,66 @@
             <input type="submit" value="Location" id="location-button" />
           </form>
           <div class="row">
+            <div class="col-1"></div>
             <h1 id="currentCity">Kyiv</h1>
             <h2 id="currentDate"></h2>
 
             <div class="col">
-              2 Jan <br />
-              Mn
-              <br />
-              <img src="images/cloudy.png" alt="cloudy" width="40px" />
+              <div class="forecast-day">Mn</div>
+              <div class="forecast-icon">
+                🌦
+                <canvas width="60" height="20"></canvas>
+              </div>
+              <div class="forecast-temperature">20°</div>
+            </div>
+
+            <div class="col border border-3">
+              <div class="forecast-day">Tue</div>
+              <div class="forecast-icon">
+                🌦
+                <canvas width="60" height="20"></canvas>
+              </div>
+              <div class="forecast-temperature">20°</div>
             </div>
             <div class="col border border-3">
-              3 Jan <br />
-              Tue
-              <br />
-              <img src="images/cloudy.png" alt="cloudy" width="40px" />
+              <div class="forecast-day">Wed</div>
+              <div class="forecast-icon">
+                🌦
+                <canvas width="60" height="20"></canvas>
+              </div>
+              <div class="forecast-temperature">25°</div>
             </div>
             <div class="col border border-3">
-              4 Jan <br />
-              Wed
-              <br />
-              <img src="images/rainy.png" alt="rainy" width="40px" />
+              <div class="forecast-day">Thu</div>
+              <div class="forecast-icon">
+                🌦
+                <canvas width="60" height="20"></canvas>
+              </div>
+              <div class="forecast-temperature">26°</div>
             </div>
             <div class="col border border-3">
-              5 Jan <br />
-              Thu
-              <br />
-              <img src="images/cloudy.png" alt="cloudy" width="40px" />
+              <div class="forecast-day">Fri</div>
+              <div class="forecast-icon">
+                🌦
+                <canvas width="60" height="20"></canvas>
+              </div>
+              <div class="forecast-temperature">28°</div>
             </div>
             <div class="col border border-3">
-              6 Jan <br />
-              Fri
-              <br />
-              <img src="images/snowy.png" alt="snowy" width="40px" />
+              <div class="forecast-day">Sat</div>
+              <div class="forecast-icon">
+                🌦
+                <canvas width="60" height="20"></canvas>
+              </div>
+              <div class="forecast-temperature">30°</div>
             </div>
             <div class="col border border-3">
-              7 Jan <br />
-              Sat
-              <br />
-              <img src="images/snowy.png" alt="snowy" width="40px" />
-            </div>
-            <div class="col border border-3">
-              8 Jan <br />
-              Sun
-              <br />
-              <img src="images/sun.png" alt="sun" width="40px" />
+              <div class="forecast-day">Sun</div>
+              <div class="forecast-icon">
+                🌦
+                <canvas width="60" height="20"></canvas>
+              </div>
+              <div class="forecast-temperature">28°</div>
             </div>
 
             <div class="container border border-3">
@@ -141,6 +157,7 @@
                   <li>Wind: <span id="currentWind"></span> km/h</li>
                   <li id="currentPrecipitation">Precipitation:</li>
                 </ul>
+                <div class="weather-forecast" id="forecast"></div>
               </div>
             </div>
           </div>
@@ -150,7 +167,7 @@
     <small
       ><a href="https://github.com/MaryKonon/weather-app" class="link"
         >Open-source code </a
-      >by Mariia Kononenko</small
+      >by Maria Kononenko</small
     >
 
     <script src="script.js"></script>
