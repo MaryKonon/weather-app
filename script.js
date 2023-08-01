@@ -42,9 +42,9 @@ function updateCityTitle(event) {
 
 // Get city's temperature, precipitation, humidity, and wind
 function getForecast(coordinates) {
-  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat={coordinates.lat}&lon={coordinates.lon}&exclude={part}&appid={apiKey}&units=metric`;
   let apiKey = "5aac6d0188c6f17d6d2bbe6591b6fef0";
-  axios.get(apiURL).then(updateCityData);
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
 }
 function updateCityData(response) {
   document.querySelector("#currentCity").innerHTML = response.data.name;
@@ -119,12 +119,20 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.daily;
   let date = new Date(response.data.daily[0].time * 1000);
   let dayOfWeek = date.getDay();
-  let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let nameOfDayOfWeek = daysOfWeek[dayOfWeek];
 
   // let forecastDailyHTML;
@@ -137,19 +145,17 @@ function displayForecast(response) {
       forecastDailyHTML =
         forecastDailyHTML +
         ` <div class="col border border-3">
-  <div class="col center" >${formatDay(forecastDay.time)}</div>
+  <div class="col center" >${formatDay(forecastDay.dt)}</div>
   <img
-  src=${forecastDay.condition.icon_url}
-  alt=${forecastDay.condition.description}
+  src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+          alt=""
   id="forecast-heaven-icon"
   width="65"
   />
   <div class="center">
   <span class="max">${Math.round(
-    forecastDay.temperature.maximum
-  )}°</span> <span class="min">${Math.round(
-          forecastDay.temperature.minimum
-        )}°</span>
+    forecastDay.temp.max
+  )}°</span> <span class="min">${Math.round(forecastDay.temp.min)}°</span>
   </div>
   </div>`;
     }
@@ -159,5 +165,4 @@ function displayForecast(response) {
   forecastDailyHTML = forecastDailyHTML + `</div>`;
   forecastElement.innerHTML = forecastDailyHTML;
 }
-
-search();
+searchDefaultCity("Kyiv");
