@@ -158,7 +158,7 @@ function displayForecast(response) {
   </div>
   </div>`;
     }
-    if (index > 1 && index < 7) {
+    if (index > 1 && index < 8) {
       console.log(index);
       forecastDailyHTML =
         forecastDailyHTML +
@@ -168,7 +168,7 @@ function displayForecast(response) {
   src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
           alt=""
   id="forecast-heaven-icon"
-  width="65"
+  width="70"
   />
   <div class="center">
   <span class="max">${Math.round(
