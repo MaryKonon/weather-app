@@ -140,7 +140,7 @@ function displayForecast(response) {
 
   // forecastDailyHTML = forecastDailyHTML + ` <div class="col-1"></div> `;
   forecast.forEach(function (forecastDay, index) {
-    if (index === 0) {
+    if (index === 1) {
       forecastDailyHTML =
         forecastDailyHTML +
         `<div class="col p-2 m-1">
@@ -158,7 +158,7 @@ function displayForecast(response) {
   </div>
   </div>`;
     }
-    if (index < 5) {
+    if (index > 1 && index < 7) {
       console.log(index);
       forecastDailyHTML =
         forecastDailyHTML +
