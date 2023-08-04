@@ -34,11 +34,17 @@ function updateCityTitle(event) {
   let newCityEntry = document.querySelector("#newCity");
   currentCity.innerHTML = newCityEntry.value;
 
+  searchCity(newCityEntry.value);
+}
+
+function searchCity(city) {
   // Get temperature
   let weatherEndpoint = "api.openweathermap.org/data/2.5/weather";
-  let apiURL = `https://${weatherEndpoint}?q=${newCityEntry.value}&appid=${apiKey}&&units=metric`;
+  let apiURL = `https://${weatherEndpoint}?q=${city}&appid=${apiKey}&&units=metric`;
   axios.get(apiURL).then(updateCityData);
 }
+
+searchCity("Paris");
 
 // Get city's temperature, precipitation, humidity, and wind
 function getForecast(coordinates) {
